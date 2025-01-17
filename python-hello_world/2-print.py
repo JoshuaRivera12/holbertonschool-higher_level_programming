@@ -4,4 +4,5 @@
 # This can be done in two ways using /n durint the prompt or after 
 print('Programming is like building a multilingual puzzle')
 print() # Path one
+print('this is a new line')
 # print('Hello World\how was your day today') # Path two
