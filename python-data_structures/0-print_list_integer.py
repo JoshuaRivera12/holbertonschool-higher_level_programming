@@ -1,14 +1,9 @@
 #!user/bin/python3
 
-def print_list_integer(my_list=[]):
-    '''
-    Prints the number 1 - 5 using the Main file that def My_list
-    The out put should be like this:
-    1
-    2
-    3
-    4
-    5
-    '''
-    for i in my_list:
+# Use Print_List_integer(MyList[]) to comeplet the code in the 0-Main.py your only allowed it use str().format()
+"Prints out the number with a new line starting from 1 then ends with 5"
+
+def print_list_integer(mylist=[]):
+    for i in mylist:
         print(str(), format(i))
+
