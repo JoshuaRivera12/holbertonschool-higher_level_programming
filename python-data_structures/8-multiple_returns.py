@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-def add_tuple(tuple_a=(), tuble_b=()):
-    tuple_a == (0, 0)
-    tuple_a == (0, 0)
-    return (tuple_a[0] + tuble_b[0], tuple_a[1] + tuble_b[1])
+def multiple_returns(sentence):
+    if sentence == "":
+        return (0, None)  # If the string is empty, return 0 and None
+    return (len(sentence), sentence[0])  # Return length and first character
+
