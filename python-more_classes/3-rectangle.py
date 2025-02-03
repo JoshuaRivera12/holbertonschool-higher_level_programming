@@ -1,15 +1,28 @@
 #!/usr/bin/python3
-class Rectangle:
-    """Defines a rectangle with string representation."""
+"""
+    a class of a rectangle
+    have a height and a width
+    height and width needs to be int
+"""
 
+
+class Rectangle():
+    """init the rectangle"""
     def __init__(self, width=0, height=0):
-        self.width = width
         self.height = height
+        self.width = width
 
+    """getter for the width"""
     @property
     def width(self):
         return self.__width
 
+    """getter for the height"""
+    @property
+    def height(self):
+        return self.__height
+
+    """setter of the width"""
     @width.setter
     def width(self, value):
         if not isinstance(value, int):
@@ -18,10 +31,7 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-    @property
-    def height(self):
-        return self.__height
-
+    """setter of the height"""
     @height.setter
     def height(self, value):
         if not isinstance(value, int):
@@ -30,16 +40,24 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
+    """looks for the area of the rectangle"""
     def area(self):
-        return self.width * self.height
+        return self.__height * self.__width
 
+    """looks for the perimeter of the rectangle"""
     def perimeter(self):
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return 2 * (self.width + self.height)
+        return self.__height * 2 + self.__width * 2
 
+    """print the rectangle"""
     def __str__(self):
-        if self.width == 0 or self.height == 0:
+        if self.__height == 0 or self.__width == 0:
             return ""
-        return "\n".join(["#" * self.width for _ in range(self.height)])
-
+        print_rect = ""
+        for i in range(self.__height):
+            for y in range(self.__width):
+                print_rect += "#"
+            if i is not self.__height - 1:
+                print_rect += "\n"
+        return print_rect
