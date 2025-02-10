@@ -4,7 +4,6 @@ Class BaseGeometry
 Class Rectangle
 """
 
-
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 """Superclass import """
 
@@ -18,3 +17,6 @@ class Rectangle(BaseGeometry):
         self.__width = width
         self.__height = height
 
+    def integer_validator(self, name, value):
+        """Expose integer_validator to make it appear in dir(Rectangle)"""
+        return super().integer_validator(name, value)
