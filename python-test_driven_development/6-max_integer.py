@@ -1,22 +1,24 @@
 #!/usr/bin/python3
 <<<<<<< HEAD
 =======
-"""Text indentation module"""
-
-
-def text_indentation(text):
-    """Prints a text with 2 new lines after each characters: ., ? and :
-    Args:
-        text (str): The text to print.
-    Raises:
-        TypeError: If text is not a string.
-    Returns:
-        None: The text is printed.
+#!/usr/bin/python3
+"""Module to find the max integer in a list
+"""
+def max_integer(list=[]):
+    """Function to find and return the max integer in a list of integers
+        If the list is empty, the function returns None
     """
-    if not isinstance(text, str):
-        raise TypeError("text must be a string")
-    text = text.replace('.', '.\n\n')
-    text = text.replace('?', '?\n\n')
-    text = text.replace(':', ':\n\n')
-    print("\n".join([line.strip() for line in text.split("\n")]), end="")
+
+    if len(list) == 0:
+        return None
+    
+    result = list[0]
+    i = 1
+    while i < len(list):
+        if list[i] > result:
+            result = list[i]
+
+        i += 1
+        
+    return result
 >>>>>>> 755cc38c648de450bd095313fbf3e08f83a6c96c
