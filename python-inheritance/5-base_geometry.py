@@ -1,8 +1,6 @@
-#!/usr/bin/python3
-class BaseGeometry:
-    """
-    This is the base class for geometry objects.
-    """
+#!/sur/bin/python3
+"""Empty class"""
 
 class BaseGeometry:
-    """ Base Geometry"""
+    """empty class name base geometry"""
+    pass
