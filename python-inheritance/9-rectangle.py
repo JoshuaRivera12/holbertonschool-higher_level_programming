@@ -1,31 +1,39 @@
 #!/usr/bin/python3
-"""rectangle"""
+"""
+Class BaseGeometry
+Class Rectangle
+"""
+
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""superclass import """
 
 
 class Rectangle(BaseGeometry):
-    """rectangle"""
+    """Class Rectangle inherits from BaseGeometry"""
 
     def __init__(self, width, height):
-        """rectangle
-
-        Args:
-            self: instance
-            width: width of the new triangle
-            height: height of the triangle
-        """
-
         super().integer_validator("width", width)
-        self.__width = width
         super().integer_validator("height", height)
+        self.__width = width
         self.__height = height
 
     def area(self):
-        """area"""
-        return self.__width * self.__height
+        """
+        Calculate the area of the rectangle.
+
+        Returns:
+            int or float: The area of the rectangle,
+            calculated as width multiplied by height.
+        """
+        return (self.__width * self.__height)
 
     def __str__(self):
-        """__str__"""
-        string = "[" + str(self.__class__.__name__) + "] "
-        string += str(self.__width) + "/" + str(self.__height)
-        return string
+        """
+        Return a string representation of the rectangle.
+
+        Returns:
+            str: A string in the format '[Rectangle] width/height',
+            where width and height are the dimensions of the rectangle.
+        """
+        return '[Rectangle] {}/{}'.format(self.__width, self.__height)
