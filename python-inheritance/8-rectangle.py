@@ -1,21 +1,19 @@
 #!/usr/bin/python3
-"""rectangle"""
+"""
+Class BaseGeometry
+Class Rectangle
+"""
+
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""superclass import """
 
 
 class Rectangle(BaseGeometry):
-    """rectangle"""
+    """Class Rectangle inherits from BaseGeometry"""
 
     def __init__(self, width, height):
-        """rectangle
-
-        Args:
-            self: instance
-            width: width of the new triangle
-            height: height of the triangle
-        """
-
-        self.integer_validator("width", width)
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
         self.__width = width
-        self.integer_validator("height", height)
         self.__height = height
