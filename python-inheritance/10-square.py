@@ -1,18 +1,23 @@
 #!/usr/bin/python3
-"""square from rectangle"""
+"""Define a class Square that inherits from Rectangle"""
+
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """square"""
+    """Square class that inherits from rectangle class.
+
+    Args:
+        Rectangle (class): class to inherit from.
+    """
 
     def __init__(self, size):
-        """square
+        """Instantiation with size.
 
         Args:
-            self: instance
-            size: square size
+            size (int): The size of the square.
         """
-        self.integer_validator("size", size)
+        super().integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
