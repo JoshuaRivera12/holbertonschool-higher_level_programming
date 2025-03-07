@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-Lists all states from the database hbtn_0e_0_usa.
-"""
-
 import MySQLdb
 import sys
 
@@ -12,13 +8,12 @@ if __name__ == "__main__":
         print("Usage: python3 {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
 
-    # Get MySQL credentials from command line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
     try:
-        # Connect to the MySQL database
+        # Connect to MySQL database
         conn = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -28,21 +23,25 @@ if __name__ == "__main__":
             charset="utf8"
         )
 
-        # Create a cursor object to interact with the database
+        # Create a cursor object
         cur = conn.cursor()
 
-        # Execute SQL query to retrieve all states sorted by id
+        # Execute SQL query
         cur.execute("SELECT id, name FROM states ORDER BY id ASC")
 
         # Fetch and print results
-        for row in cur.fetchall():
+        rows = cur.fetchall()
+        for row in rows:
             print(row)
 
         # Clean up
         cur.close()
         conn.close()
 
-    except MySQLdb.Error as e:
-        print("Error: {}".format(e))
+    except MySQLdb.OperationalError as e:
+        print("Database connection failed:", e)
         sys.exit(1)
 
+    except Exception as e:
+        print("An error occurred:", e)
+        sys.exit(1)
