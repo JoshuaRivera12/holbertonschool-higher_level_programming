@@ -1,47 +1,45 @@
 #!/usr/bin/python3
+"""
+Script that lists all states from the database hbtn_0e_0usa
+"""
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
-    # Ensure correct number of arguments
+    # Verification of all required arguments
     if len(sys.argv) != 4:
-        print("Usage: python3 {} <username> <password> <database>".format(sys.argv[0]))
+        print("Usage: {} <mysql username> <mysql password> <database name>"
+              .format(sys.argv[0]))
         sys.exit(1)
 
+    # Command line args
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    try:
-        # Connect to MySQL database
-        conn = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database,
-            charset="utf8"
-        )
+    # Connection to MySQL Server
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
-        # Create a cursor object
-        cur = conn.cursor()
+    # Creating Cursor
+    cursor = db.cursor()
 
-        # Execute SQL query
-        cur.execute("SELECT id, name FROM states ORDER BY id ASC")
+    # Execute SQL Query
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-        # Fetch and print results
-        rows = cur.fetchall()
-        for row in rows:
-            print(row)
+    # Fetch all rows
+    rows = cursor.fetchall()
 
-        # Clean up
-        cur.close()
-        conn.close()
+    # Print result
+    for row in rows:
+        print(row)
 
-    except MySQLdb.OperationalError as e:
-        print("Database connection failed:", e)
-        sys.exit(1)
-
-    except Exception as e:
-        print("An error occurred:", e)
-        sys.exit(1)
+    # Close cursor and database
+    cursor.close()
+    db.close
