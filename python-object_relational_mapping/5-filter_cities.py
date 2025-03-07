@@ -1,22 +1,41 @@
 #!/usr/bin/python3
-"""
-takes in the name of a state as an argument
-and lists all cities of that state
-"""
+
+'''my SQLldb'''
+
+import MySQLdb
+import sys
 
 
-import MySQLdb as sql
-from sys import argv
-if __name__ == '__main__':
-    db = sql.connect(host="localhost",
-                     port=3306, user=argv[1], passwd=argv[2], db=argv[3])
-    cur = db.cursor()
-    query = "SELECT cities.name FROM cities JOIN states ON\
-    cities.state_id = states.id WHERE states.name = %s"
-    cur.execute(query, (argv[4],))
-    rows = cur.fetchall()
-    cities_array = [row[0] for row in rows]
-    cities_string = ", ".join(cities_array)
-    print(cities_string)
+if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    matchname = sys.argv[4].split(";")[0].strip("'")
+
+    conn = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database,
+        charset="utf8"
+    )
+    cur = conn.cursor()
+    cur.execute(f"SELECT c.name \
+        FROM cities AS c \
+        JOIN states AS st \
+            ON c.state_id = st.id \
+        WHERE st.name = '{matchname}' \
+        ORDER BY c.id")
+    query_rows = cur.fetchall()
+
+    index = 0
+    for row in query_rows:
+        if index > 0:
+            print(", ", end="")
+        print(row[0], end="")
+        index += 1
+    print()
+
     cur.close()
-    db.close()
+    conn.close()
