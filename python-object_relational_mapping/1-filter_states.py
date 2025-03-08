@@ -7,16 +7,8 @@ import sys
 
 
 if __name__ == "__main__":
-    # Verification of all required arguments
-    if len(sys.argv) != 4:
-        print("Usage: {} <mysql username> <mysql password> <database name>"
-              .format(sys.argv[0]))
-        sys.exit(1)
-
-    # Command line args
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+        db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+    db=sys.argv[3], port=3306)    
 
     # Connection to MySQL Server
     db = MySQLdb.connect(
