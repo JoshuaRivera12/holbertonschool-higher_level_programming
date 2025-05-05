@@ -2,4 +2,5 @@
 
 str = "Holberton School"
 
-print("str[0:8]")
+print(f"{str * 3}")
+print(f"{str[:9]}")
