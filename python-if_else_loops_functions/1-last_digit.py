@@ -17,4 +17,5 @@ else:
         print(f"Last digit of {number} is {last} and is 0")
     else:
      print(f"Last digit of {number} is {last} and is less than 6 and not 0")
+# The code generates a random integer between -10000 and 10000, calculates its last digit, and prints a message based on the value of the last digit.
             
