@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 for i in range(97, 123):
-    print(chr(i), end="")
-# The code prints lowercase a to z using the chr() function
+    print(f"{str(chr(i))}", end="")
+# The code still prints lowercase a to z
