@@ -1,4 +1,4 @@
-#!/usr/bin/python3
-for letter in "abcdefghijklmnopqrstuvwxyz":
-    if letter != 'e' and letter != 'q':  # ASCII values for 'q' and 'e'
-        print("{}".format(letter), end="")
+#/usr/bin/python3
+for c in "abcdefghijklmnopqrstuvwxyz":
+    if c != 'q' and c != 'e':
+        print("{}".format(c), end="")
