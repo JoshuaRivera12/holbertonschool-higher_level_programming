@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def fizzbuzz():
     """Writes a function that prints the numbers from 1 to 100 separated by a space."""
-    for i in range(1, 101):  # Include 100 in the range
+    for i in range(1, 101):
         if i % 3 == 0 and i % 5 == 0:
             print("FizzBuzz", end="")
         elif i % 3 == 0:
@@ -10,5 +10,5 @@ def fizzbuzz():
             print("Buzz", end="")
         else:
             print(i, end="")
-        if i != 101:  # Add a space only if it's not the last number
+        if i != 101:
             print("", end=" ")
