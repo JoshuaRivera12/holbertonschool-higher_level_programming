@@ -10,5 +10,5 @@ def fizzbuzz():
             print("Buzz", end="")
         else:
             print(i, end="")
-        if i != 100:  # Add a space only if it's not the last number
+        if i != 101:  # Add a space only if it's not the last number
             print("", end=" ")
