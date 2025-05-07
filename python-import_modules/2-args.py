@@ -9,5 +9,5 @@ elif count == 1:
     print("1 argument:")
 else:
     print("{} arguments:".format(count))
-    for i in range(1, count + 1):
-        print("{}: {}".format(i, sys.argv[i]))
+for i in range(1, count + 1):
+    print("{}: {}".format(i, sys.argv[i]))
