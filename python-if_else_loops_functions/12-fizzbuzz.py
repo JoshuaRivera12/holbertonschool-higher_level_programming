@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 def fizzbuzz():
-    """writes a function that prints the numbers from 1 to 100 separated by a space."""
-    for i in range(1, 100):
+    """Writes a function that prints the numbers from 1 to 100 separated by a space."""
+    for i in range(1, 101):  # Include 100 in the range
         if i % 3 == 0 and i % 5 == 0:
-            print("FizzBuzz", end=" ")
+            print("FizzBuzz", end="")
         elif i % 3 == 0:
-            print("Fizz", end=" ")
+            print("Fizz", end="")
         elif i % 5 == 0:
-            print("Buzz", end=" ")
+            print("Buzz", end="")
         else:
-            print(i, end=" ")
-    print("Buzz")
+            print(i, end="")
+        if i != 100:  # Add a space only if it's not the last number
+            print(" ", end="")
