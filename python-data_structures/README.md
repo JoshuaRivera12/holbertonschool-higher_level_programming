@@ -90,5 +90,5 @@ Strings only contain characters + cannot change (immutable)
 - print(my_string[0])  # 'a'
 
 ## Videos i found that may help
-> ![Ten Min Crash Course](https://youtu.be/fWjsdhR3z3c?si=Tv4EHYa6ZXqM_MnA)
-> ![All str methods](https://youtu.be/bnSYeYFRCaA?si=CvocUyeAz44S-p0b)
+> [Ten Min Crash Course](https://youtu.be/fWjsdhR3z3c?si=Tv4EHYa6ZXqM_MnA)
+> [All str methods](https://youtu.be/bnSYeYFRCaA?si=CvocUyeAz44S-p0b)
