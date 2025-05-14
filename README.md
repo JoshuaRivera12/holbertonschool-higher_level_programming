@@ -16,5 +16,5 @@ This Repo will be updated a lot feel free to look around all these files are ans
 you can gather intel just dont copy the asnwers learn them in every folder there will be another readme file explaining 
 what topic its about and what you are expected to try and learn
 
-# Auther
+### Auther
 - joshua rivera
