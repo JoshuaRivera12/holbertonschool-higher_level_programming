@@ -10,12 +10,12 @@ class Rectangle:
         self.height = height
 
     @property
-    def withth(self):
+    def width(self):
         """Get the width of the rectangle."""
         return self.__width
 
-    @withth.setter
-    def withth(self, value):
+    @width.setter
+    def width(self, value):
         """Set the width of the rectangle."""
         if not isinstance(value, int):
             raise TypeError("width must be integer")
