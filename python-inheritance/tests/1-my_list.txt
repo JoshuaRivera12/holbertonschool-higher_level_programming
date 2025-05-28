@@ -1,73 +1,66 @@
-::
-no arguments:
-::
+"""
+Test the MyList class and its print_sorted method.
 
-    >>> MyList = __import__('1-my_list').MyList
-    >>> my_list = MyList()
-    >>> type(my_list)
-    <class '1-my_list.MyList'>
+Empty list:
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> type(my_list)
+<class '1-my_list.MyList'>
+>>> print(my_list)
+[]
+>>> my_list.print_sorted()
+[]
 
-::
+One argument (initialization with iterable):
+>>> my_list = MyList([1, 2, 3])
+>>> print(my_list)
+[1, 2, 3]
 
-    >>> print(my_list)
-    []
+Initialization with None (should raise TypeError):
+>>> my_list = MyList(None)
+Traceback (most recent call last):
+...
+TypeError: 'NoneType' object is not iterable
 
-::
-one argument
-::
+Check method binding (print_sorted is bound method):
+>>> my_list = MyList()
+>>> print(my_list.print_sorted)
+<bound method MyList.print_sorted of []>
 
-    >>> my_list = MyList([1, 2, 3])
-    >>> print(my_list)
-    [1, 2, 3]
+Append elements and test sorting:
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)  # Original list should remain unchanged
+[1, 4, 2, 3, 5]
 
-::
+Sorting a list of strings (lexicographic order):
+>>> my_list = MyList(["banana", "apple", "cherry"])
+>>> my_list.print_sorted()
+['apple', 'banana', 'cherry']
 
-    >>> my_list = MyList(None)
-    Traceback (most recent call last):
-    TypeError: 'NoneType' object is not iterable
+Empty list again:
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
 
-::
+Calling print_sorted with arguments should raise TypeError:
+>>> my_list.print_sorted(1)
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
 
-    >>> my_list = MyList()
-    >>> print(my_list.print_sorted)
-    <bound method MyList.print_sorted of []>
+Mixed types should raise TypeError when sorting:
+>>> my_list = MyList([1, "two", 3])
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError
+"""
 
-The method takes no arguments - a TypeError will be raised if an argument is
-provided.
-
-::
-
-    >>> my_list.append(1)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(3)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    [1, 4, 2, 3, 5]
-
-::
-
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
-
-The order of the original list is not altered after a call to the method.
-
-::
-
-    >>> print(my_list)
-    [1, 4, 2, 3, 5]
-
-Note that lists of strings are sorted lexographically.
-
-::
-
-::
-
-    >>> my_list = MyList()
-    >>> my_list.print_sorted()
-    []
-
-If ``print_sorted(...)`` is called on a list of different types, a TypeError
-will be raised.
-
-::
