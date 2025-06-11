@@ -10,7 +10,7 @@ import csv
 
 
 def fetch_and_print_posts():
-    responce = requests.get("https://jsonplaceholder.typicode.com/")
+    responce = requests.get("https://jsonplaceholder.typicode.com/posts")
     responce.status_code
     print("Status Code:", responce.status_code)
 
