@@ -33,5 +33,5 @@ def fetch_and_save_posts():
 
 
             for post in data:
-                print(post["title"])
+                print(post["title"], flush=True)
 
